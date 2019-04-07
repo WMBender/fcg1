@@ -172,7 +172,7 @@ int main()
         //                |          |  |                 +--- Vértices começam em indices[0] (veja função BuildTriangles()).
         //                |          |  |                 |
         //                V          V  V                 V
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_BYTE, 0);
+        glDrawElements(GL_TRIANGLE_STRIP, 34, GL_UNSIGNED_BYTE, 0);
 
         // "Desligamos" o VAO, evitando assim que operações posteriores venham a
         // alterar o mesmo. Isso evita bugs.
@@ -215,12 +215,40 @@ GLuint BuildTriangles()
     //
     // Este vetor "NDC_coefficients" define a GEOMETRIA (veja slide 114 do documento "Aula_04_Modelagem_Geometrica_3D.pdf").
     //
-    GLfloat NDC_coefficients[] = {
+GLfloat NDC_coefficients[] = {
     //    X      Y     Z     W
-        -0.5f, -0.5f, 0.0f, 1.0f,
-         0.5f, -0.5f, 0.0f, 1.0f,
-         0.0f,  0.5f, 0.0f, 1.0f,
-         0.5f,  0.5f, 0.0f, 1.0f
+        0.646716f, 0.267878f, 0.0f, 1.0f,
+        0.494975f, 0.494975f, 0.0f, 1.0f,
+        0.267878f, 0.646716f, 0.0f, 1.0f,
+        0.000000f, 0.700000f, 0.0f, 1.0f,
+        -0.267878f, 0.646716f, 0.0f, 1.0f,
+        -0.494975f, 0.494975f, 0.0f, 1.0f,
+        -0.646716f, 0.267878f, 0.0f, 1.0f,
+        -0.700000f, 0.000000f, 0.0f, 1.0f,
+        -0.646716f, -0.267878f, 0.0f, 1.0f,
+        -0.494975f, -0.494975f, 0.0f, 1.0f,
+        -0.267878f, -0.646716f, 0.0f, 1.0f,
+        -0.000000f, -0.700000f, 0.0f, 1.0f,
+        0.267878f, -0.646716f, 0.0f, 1.0f,
+        0.494975f, -0.494975f, 0.0f, 1.0f,
+        0.646716f, -0.267878f, 0.0f, 1.0f,
+        0.700000f, -0.000000f, 0.0f, 1.0f,
+        0.461940f, 0.191342f, 0.0f, 1.0f,
+        0.353553f, 0.353553f, 0.0f, 1.0f,
+        0.191342f, 0.461940f, 0.0f, 1.0f,
+        0.000000f, 0.500000f, 0.0f, 1.0f,
+        -0.191342f, 0.461940f, 0.0f, 1.0f,
+        -0.353553f, 0.353553f, 0.0f, 1.0f,
+        -0.461940f, 0.191342f, 0.0f, 1.0f,
+        -0.500000f, 0.000000f, 0.0f, 1.0f,
+        -0.461940f, -0.191342f, 0.0f, 1.0f,
+        -0.353553f, -0.353553f, 0.0f, 1.0f,
+        -0.191342f, -0.461940f, 0.0f, 1.0f,
+        -0.000000f, -0.500000f, 0.0f, 1.0f,
+        0.191342f, -0.461940f, 0.0f, 1.0f,
+        0.353553f, -0.353553f, 0.0f, 1.0f,
+        0.461940f, -0.191342f, 0.0f, 1.0f,
+        0.500000f, -0.000000f, 0.0f, 1.0f
     };
 
     // Criamos o identificador (ID) de um Vertex Buffer Object (VBO).  Um VBO é
@@ -297,12 +325,40 @@ GLuint BuildTriangles()
     // Tal cor é definida como coeficientes RGBA: Red, Green, Blue, Alpha;
     // isto é: Vermelho, Verde, Azul, Alpha (valor de transparência).
     // Conversaremos sobre sistemas de cores nas aulas de Modelos de Iluminação.
-    GLfloat color_coefficients[] = {
+GLfloat color_coefficients[] = {
     //  R     G     B     A
-        1.0f, 0.0f, 0.0f, 1.0f,
-        0.0f, 1.0f, 0.0f, 1.0f,
         0.0f, 0.0f, 1.0f, 1.0f,
-        0.0f, 1.0f, 1.0f, 1.0f
+        0.0f, 0.0f, 1.0f, 1.0f,
+        0.0f, 0.0f, 1.0f, 1.0f,
+        0.0f, 0.0f, 1.0f, 1.0f,
+        0.0f, 0.0f, 1.0f, 1.0f,
+        0.0f, 0.0f, 1.0f, 1.0f,
+        0.0f, 0.0f, 1.0f, 1.0f,
+        0.0f, 0.0f, 1.0f, 1.0f,
+        0.0f, 0.0f, 1.0f, 1.0f,
+        0.0f, 0.0f, 1.0f, 1.0f,
+        0.0f, 0.0f, 1.0f, 1.0f,
+        0.0f, 0.0f, 1.0f, 1.0f,
+        0.0f, 0.0f, 1.0f, 1.0f,
+        0.0f, 0.0f, 1.0f, 1.0f,
+        0.0f, 0.0f, 1.0f, 1.0f,
+        0.0f, 0.0f, 1.0f, 1.0f,
+        1.0f, 0.0f, 0.0f, 1.0f,
+        1.0f, 0.0f, 0.0f, 1.0f,
+        1.0f, 0.0f, 0.0f, 1.0f,
+        1.0f, 0.0f, 0.0f, 1.0f,
+        1.0f, 0.0f, 0.0f, 1.0f,
+        1.0f, 0.0f, 0.0f, 1.0f,
+        1.0f, 0.0f, 0.0f, 1.0f,
+        1.0f, 0.0f, 0.0f, 1.0f,
+        1.0f, 0.0f, 0.0f, 1.0f,
+        1.0f, 0.0f, 0.0f, 1.0f,
+        1.0f, 0.0f, 0.0f, 1.0f,
+        1.0f, 0.0f, 0.0f, 1.0f,
+        1.0f, 0.0f, 0.0f, 1.0f,
+        1.0f, 0.0f, 0.0f, 1.0f,
+        1.0f, 0.0f, 0.0f, 1.0f,
+        1.0f, 0.0f, 0.0f, 1.0f
     };
     GLuint VBO_color_coefficients_id;
     glGenBuffers(1, &VBO_color_coefficients_id);
@@ -322,7 +378,8 @@ GLuint BuildTriangles()
     //
     // Este vetor "indices" define a TOPOLOGIA (veja slide 114 do documento "Aula_04_Modelagem_Geometrica_3D.pdf").
     //
-    GLubyte indices[] = { 0,1,2, 2,1,3 }; // GLubyte: valores entre 0 e 255 (8 bits sem sinal).
+    GLubyte indices[] = { 0, 16, 1, 17, 2, 18, 3, 19, 4, 20, 5, 21, 6, 22, 7, 23, 8, 24, 9,
+ 25, 10, 26, 11, 27, 12, 28, 13, 29, 14, 30, 15, 31, 0, 16 }; // GLubyte: valores entre 0 e 255 (8 bits sem sinal).
 
     // Criamos um buffer OpenGL para armazenar os índices acima
     GLuint indices_id;

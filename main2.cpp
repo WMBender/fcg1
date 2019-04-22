@@ -119,8 +119,8 @@ glm::vec3 cameraUp    = glm::vec3(0.0f, 1.0f,  0.0f);
 
 float yaw   = -90.0f;	// yaw is initialized to -90.0 degrees since a yaw of 0.0 results in a direction vector pointing to the right so we initially rotate a bit to the left.
 float pitch =  0.0f;
-float lastX =  800.0f / 2.0;
-float lastY =  600.0 / 2.0;
+//float lastX =  800.0f / 2.0;
+//float lastY =  600.0 / 2.0;
 float fov   =  45.0f;
 
 //timing
@@ -252,7 +252,7 @@ int main()
     glm::mat4 the_model;
     glm::mat4 the_view;
 
-    glfwSetCursorPos(window, lastX,lastY);
+//    glfwSetCursorPos(window, lastX,lastY);
     // Ficamos em loop, renderizando, até que o usuário feche a janela
     while (!glfwWindowShouldClose(window))
     {
@@ -965,10 +965,10 @@ void CursorPosCallback(GLFWwindow* window, double xpos, double ypos)
     if (!g_LeftMouseButtonPressed)
         return;
 
-    float xoffset = xpos - lastX;
-    float yoffset = lastY - ypos; // reversed since y-coordinates go from bottom to top
-    lastX = xpos;
-    lastY = ypos;
+    float xoffset = xpos - g_LastCursorPosX;
+    float yoffset = g_LastCursorPosY - ypos; // reversed since y-coordinates go from bottom to top
+    g_LastCursorPosX = xpos;
+    g_LastCursorPosY = ypos;
 
     float sensitivity = 0.2f;
     xoffset *= sensitivity;
@@ -1202,4 +1202,3 @@ void TextRendering_ShowFramesPerSecond(GLFWwindow* window)
 
 // set makeprg=cd\ ..\ &&\ make\ run\ >/dev/null
 // vim: set spell spelllang=pt_br :
-
